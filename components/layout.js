@@ -4,7 +4,7 @@ import Header from './header'
 const Layout = (props) => (
   <>
     <Head>
-      <title>要員・備品管理</title>
+      <title>社内管理</title>
     </Head>
 
     <Header />

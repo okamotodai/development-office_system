@@ -13,32 +13,12 @@ const DispatchNavigation = ({ id, page }) => {
     <div className="mb-4">
       <ul className="flex">
         <li className="flex-1 mr-1">
-          <Link href="/dispatch/[id]" as={`/dispatch/${id}`}>
-            <a className={page == 'dispatch' ? active : inactive}>個人</a>
+          <Link href="/dispatch/staff" as={`/dispatch/staff/${id}`}>
+            <a className={page == 'staff' ? active : inactive}>派遣社員</a>
           </Link>
         </li>
         <li className="flex-1 mr-1">
-          <Link href="/dispatch/[id]/qualifications" as={`/dispatch/${id}/qualifications`}>
-            <a className={page == 'qualifications' ? active : inactive}>資格</a>
-          </Link>
-        </li>
-        <li className="flex-1 mr-1">
-          <Link href="/dispatch/[id]/projects" as={`/dispatch/${id}/projects`}>
-            <a className={page == 'projects' ? active : inactive}>プロジェクト</a>
-          </Link>
-        </li>
-        <li className="flex-1 mr-1">
-          <Link href="/dispatch/[id]/contracts" as={`/dispatch/${id}/contracts`}>
-            <a className={page == 'contracts' ? active : inactive}>契約(年度管理)</a>
-          </Link>
-        </li>
-        <li className="flex-1 mr-1">
-          <Link href="/dispatch/[id]/working_status" as={`/dispatch/${id}/working_status`}>
-            <a className={page == 'working_status' ? active : inactive}>就業状況</a>
-          </Link>
-        </li>
-        <li className="flex-1 mr-1">
-          <Link href="/dispatch/[id]/companies" as={`/dispatch/${id}/companies`}>
+          <Link href="/dispatch/companies" as={`/dispatch/companies/${id}`}>
             <a className={page == 'companies' ? active : inactive}>派遣元会社</a>
           </Link>
         </li>

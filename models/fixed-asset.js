@@ -10,7 +10,7 @@ const FixedAssets = sequelize.define('fixed_asset', {
   quantity:              { type: DataTypes.INTEGER, field: 'quantity', defaultValue: null, },
   getDate:               { type: DataTypes.DATEONLY, field: 'get_date', defaultValue: null, },
   commonDate:            { type: DataTypes.DATEONLY, field: 'common_date', defaultValue: null, },
-  userId:                { type: DataTypes.INTEGER, field: 'user_id', defaultValue: null, },
+  userName:                { type: DataTypes.STRING, field: 'user_name', defaultValue: null, },
   usePlace:              { type: DataTypes.STRING, field: 'use_place', defaultValue: null, },
   getPrice:              { type: DataTypes.INTEGER, field: 'get_price', defaultValue: null, },
   tax:                   { type: DataTypes.INTEGER, field: 'tax', defaultValue: null, },
@@ -32,11 +32,6 @@ const FixedAssets = sequelize.define('fixed_asset', {
   freezeTableName: true
 })
 
-FixedAssets.belongsTo(Staff,{
-  foreignKey:"userId",
-  targetKey:"staffId",
-  as:"UserId"
-});
 
 FixedAssets.belongsTo(Staff,{
   foreignKey:"staffId",

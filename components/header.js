@@ -21,7 +21,7 @@ const Header = () => {
 
           </li>
          <li className="mr-4 first:ml-auto">
-            <Link href="/dispatch">
+            <Link href="/dispatch/staff">
               <a>派遣管理</a>
             </Link>
 

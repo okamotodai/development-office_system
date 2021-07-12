@@ -3,7 +3,10 @@ import sequelize from './db'
 
 const PersonsInCharge = sequelize.define('Persons_in_charge', {
   personInChargeName:  { type: DataTypes.STRING, field: 'person_in_charge_name', allowNull: false, defaultValue: null, },
-  companyId:           { type: DataTypes.INTEGER,  field: 'company_id', defaultValue: null, },
+  companyId:           { type: DataTypes.INTEGER, field: 'company_id', defaultValue: null, },
+  department:          { type: DataTypes.STRING, defaultValue: null, },
+  periodStart:        { type: DataTypes.DATEONLY, field: 'period_start', defaultValue: null, },
+  periodEnd:          { type: DataTypes.DATEONLY, field: 'period_end', defaultValue: null, },
   postalCode:          { type: DataTypes.STRING, field: 'postal_code', defaultValue: null, },
   address:             { type: DataTypes.STRING, defaultValue: null, },
   workPhoneNumber:     { type: DataTypes.STRING, field: 'work_phone_number', defaultValue: null, },

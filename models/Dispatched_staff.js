@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize'
 import sequelize from './db'
+import WorkTimesByMonth from './Work_times_by_month'
 
 const Dispatch = sequelize.define('Dispatched_staff', {
   companyNumber:       { type: DataTypes.STRING, field: 'company_number', defaultValue: null, },
@@ -9,7 +10,7 @@ const Dispatch = sequelize.define('Dispatched_staff', {
   sex:                 { type: DataTypes.STRING, defaultValue: null, },
   blood_type:          { type: DataTypes.DATEONLY, field: 'blood_type', defaultValue: null, },
   birthDate:           { type: DataTypes.DATEONLY, field: 'birth_date', defaultValue: null, },
-  inserviceRetired:    { type: DataTypes.STRING, field: 'inservice_retired', defaultValue: null, },
+  inserviceRetired:    { type: DataTypes.INTEGER, field: 'inservice_retired', defaultValue: null, },
   companyId:           { type: DataTypes.INTEGER, field: 'company_id', defaultValue: null, },
   employedCategory:    { type: DataTypes.STRING, field: 'employed_category', defaultValue: null, },
   joinDate:            { type: DataTypes.DATEONLY, field: 'join_date', defaultValue: null, },
@@ -21,6 +22,11 @@ const Dispatch = sequelize.define('Dispatched_staff', {
   freezeTableName: true
 });
 
+Dispatch.belongsTo(WorkTimesByMonth,{
+  as: "WorkTimesByMonth",
+  foreignKey:"id",
+  targetKey:"dispatchedStaffId"
+})
 
 
 export default Dispatch

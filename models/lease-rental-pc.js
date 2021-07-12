@@ -11,7 +11,7 @@ const LeaseRentalPcs = sequelize.define('lease_rental_pc',{
   pcName:          { type: DataTypes.STRING, field: 'pc_name', defaultValue: null,},
   contractStart:   { type: DataTypes.DATEONLY, field: 'contract_start', defaultValue: null,},
   contractEnd:     { type: DataTypes.DATEONLY, field: 'contract_end', defaultValue: null,},
-  userId:          { type: DataTypes.INTEGER, field: 'user_id', defaultValue: null,},
+  userName:          { type: DataTypes.STRING, field: 'user_name', defaultValue: null,},
   ipAddress:       { type: DataTypes.STRING, field: 'ip_address', defaultValue: null,},
   vpn:             { type: DataTypes.INTEGER, field: 'vpn', defaultValue: null,},
   monthly:         { type: DataTypes.INTEGER, field: 'monthly', defaultValue: null,},
@@ -21,9 +21,5 @@ const LeaseRentalPcs = sequelize.define('lease_rental_pc',{
   freezeTableName: true
 });
 
-LeaseRentalPcs.belongsTo(Staff,{
-  foreignKey: "userId",
-  targetKey: "staffId"
-});
 
 export default LeaseRentalPcs

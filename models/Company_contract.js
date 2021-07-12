@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 import sequelize from './db'
 
-const CompanyContract = sequelize.define('Company_contract', {
+const CompanyContract = sequelize.define('Company_contracts', {
   companyId:           { type: DataTypes.INTEGER,  field: 'company_id', allowNull: false, defaultValue: null, },
   companyContractEndDate:       { type: DataTypes.DATEONLY, field: 'company_contract_end_date', allowNull: false, defaultValue: null, },
   dayOverWorkTime:          { type: DataTypes.FLOAT,  field: 'day_over_work_time', defaultValue: null, },
