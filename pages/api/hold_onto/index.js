@@ -21,6 +21,6 @@ export default async function handler(req, res) {
   ]
 
   });
-
+  console.log(JSON.stringify(holdontos, null, 2));
   res.status(200).json({ hold_onto: holdontos || null })
 }

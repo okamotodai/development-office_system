@@ -28,7 +28,7 @@ const FixedAsset = () => {
   async function handleSubmit(e) {
     e.preventDefault()
     setSubmittable(false)
-    fixedAsset.userId = fixedAsset.userId === "" ? null : fixedAsset.userId
+    fixedAsset.userName = fixedAsset.userName === "" ? null : fixedAsset.userName
     const method= !fixedAsset.id ? 'POST' : 'PUT'
     const res = await fetch(`/api/fixed_asset/${router.query.id_fixed_asset}`,{method: method, body:JSON.stringify(fixedAsset)});
     !fixedAsset.id && router.push(`/object/fixed_asset`)
@@ -65,7 +65,7 @@ const FixedAsset = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="assetsCode" className="form-inline-label">資産コード</label>
+              <label htmlFor="assetsCode" className="form-inline-label">資産コード（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="assetsCode" value={fixedAsset.assetsCode || ''} onChange={handleChange} required
@@ -92,7 +92,7 @@ const FixedAsset = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="assetsName" className="form-inline-label">資産名</label>
+              <label htmlFor="assetsName" className="form-inline-label">資産名（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="assetsName" value={fixedAsset.assetsName || ''} onChange={handleChange} required
@@ -132,15 +132,11 @@ const FixedAsset = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="userId" className="form-inline-label">利用者氏名</label>
+              <label htmlFor="userName" className="form-inline-label">利用者氏名</label>
             </div>
             <div className="w-2/3">
-              <select type="text" name="userId" value={fixedAsset.userId || ''} onChange={handleChange}
-              className="form-inline-input">
-                <option value=""></option>
-                {sbody}
-              </select>
-              <input type = "hidden" />
+              <input type="text" name="userName" value={fixedAsset.userName || ''} onChange={handleChange}
+              className="form-inline-input"/>
             </div>
           </div>
 
@@ -277,7 +273,7 @@ const FixedAsset = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="staffId" className="form-inline-label">担当者</label>
+              <label htmlFor="staffId" className="form-inline-label">担当者（必須）</label>
             </div>
             <div className="w-2/3">
               <select type="text" name="staffId" value={fixedAsset.staffId || ''} onChange={handleChange} required

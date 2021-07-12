@@ -50,14 +50,13 @@ CREATE TABLE lease_rental_pc (
     pc_name varchar(64) not null,
     contract_start date,
     contract_end date,
-    user_id integer not null,
+    user_name varchar(64) not null,
     ip_address varchar(64),
     vpn integer,
     monthly integer,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
-    PRIMARY KEY (id),
-    FOREIGN KEY(user_id) REFERENCES "Staff"(staff_id)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE phone_wifi (
@@ -65,7 +64,7 @@ CREATE TABLE phone_wifi (
     telephone_number varchar(64) not null,
     carrier varchar(64),
     type_tel_wifi varchar(64),
-    user_id integer not null,
+    user_name varchar(64) not null,
     model_number varchar(64),
     model_name varchar(64),
     process_name varchar(64),
@@ -86,8 +85,7 @@ CREATE TABLE phone_wifi (
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
     PRIMARY KEY (id),
-    FOREIGN KEY(staff_id) REFERENCES "Staff"(staff_id),
-    FOREIGN KEY(user_id) REFERENCES "Staff"(staff_id)
+    FOREIGN KEY(staff_id) REFERENCES "Staff"(staff_id)
 );
 
 CREATE TABLE fixed_asset (
@@ -98,7 +96,7 @@ CREATE TABLE fixed_asset (
     quantity integer,
     get_date date,
     common_date date,
-    user_id integer,
+    user_name varchar(64),
     use_place varchar(64),
     get_price integer,
     tax integer,
@@ -117,7 +115,6 @@ CREATE TABLE fixed_asset (
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
     PRIMARY KEY (id),
-    FOREIGN KEY(user_id) REFERENCES "Staff"(staff_id),
     FOREIGN KEY(staff_id) REFERENCES "Staff"(staff_id)
 );
 

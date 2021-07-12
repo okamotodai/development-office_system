@@ -17,7 +17,6 @@ export default async function staffHandler(req, res) {
 
     case 'POST':
       const post = JSON.parse(req.body)
-      console.log(post)
       await Qualification.create(post);
       res.status(200).json({})
       break

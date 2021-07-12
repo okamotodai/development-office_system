@@ -7,10 +7,7 @@ export default async function handler(req, res) {
   const session = await getSession(req)
   const assets = !session ? null : await FixedAssets.findAll({
     order: [['id','ASC']],
-    include:[{
-      model:Staff,
-      as:"UserId"
-    },
+    include:[
     {
       model:Staff,
       as:"StaffId"

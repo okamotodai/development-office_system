@@ -1,12 +1,12 @@
 import { getSession } from '../../../lib/iron'
-import OwnedQualification from '../../../models/Owned_qualification'
+import PersonalContractsYearly from '../../../models/Personal_contracts_yearly'
 
 export default async function handler(req, res) {
   const session = await getSession(req)
-  const qualifications = !session ? null : await OwnedQualification.findAll({
+  const dispatchContracts = !session ? null : await PersonalContractsYearly.findAll({
     where: req.query.dispatchedStaffId ? {dispatchedStaffId: req.query.dispatchedStaffId} : {},
     order: [['id', 'ASC']]
   })
 
-  res.status(200).json({ qualifications: qualifications || null })
+  res.status(200).json({ dispatchContracts: dispatchContracts || null })
 }

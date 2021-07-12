@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   const session = await getSession(req)
   const pcs = !session ? null : await LeaseRentalPcs.findAll({
     order: [['id','ASC']],
-    include:Staff
 
   })
 

@@ -3,8 +3,6 @@ import Staff from '../../../models/staff'
 
 export default async function staffHandler(req, res) {
   const session = await getSession(req)
-  
- console.log(req.query.id)
 
   switch (req.method) {
     case 'GET':
@@ -17,13 +15,8 @@ export default async function staffHandler(req, res) {
       break
 
     case 'POST':
-      console.error('POSTの中に入ったよ');
-      console.error('req.body =' + req.body);
       const post = JSON.parse(req.body)
-      console.error('POSTの中に入ったよ2');
-      console.error('post =' + post);
       await Staff.create(post);
-      console.error('POSTの中に入ったよ3');
       res.status(200).json({})
       break
 

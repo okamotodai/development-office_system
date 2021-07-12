@@ -64,7 +64,7 @@ const Pc = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="contracTnumber" className="form-inline-label">契約番号</label>
+              <label htmlFor="contracTnumber" className="form-inline-label">契約番号（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="contracTnumber" value={pc.contracTnumber || ''} onChange={handleChange} required
@@ -104,7 +104,7 @@ const Pc = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="pcName" className="form-inline-label">コンピューター名</label>
+              <label htmlFor="pcName" className="form-inline-label">コンピューター名（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="pcName" value={pc.pcName || ''} onChange={handleChange} required
@@ -134,15 +134,11 @@ const Pc = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="userId" className="form-inline-label">使用者</label>
+              <label htmlFor="userName" className="form-inline-label">使用者（必須）</label>
             </div>
             <div className="w-2/3">
-              <select name="userId" value={pc.userId || ''} onChange={handleChange} required
-              className="form-inline-input">
-                <option value=""></option>
-                {sbody}
-              </select>
-              <input type = "hidden" />
+              <input type="text" name="userName" value={pc.userName || ''} onChange={handleChange} required
+              className="form-inline-input"/>
             </div>
           </div>
 

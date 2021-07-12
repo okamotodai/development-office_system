@@ -21,7 +21,7 @@ const tbody = !pc.lease_rental_pc ? null : pc.lease_rental_pc.map(p =>
       <td className="p-2">{p.pcName}</td>
       <td className="p-2">{p.contractStart}</td>
       <td className="p-2">{p.contractEnd}</td>
-      <td className="p-2">{p.Staff?.fullName}</td>
+      <td className="p-2">{p.userName}</td>
       <td className="p-2">{p.ipAddress}</td>
       <td className="p-2">{p.vpn}</td>
       <td className="p-2">{p.monthly}</td>

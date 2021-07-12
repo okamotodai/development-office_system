@@ -74,7 +74,7 @@ const DisasterStockpile = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="productName" className="form-inline-label">品名</label>
+              <label htmlFor="productName" className="form-inline-label">品名（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="productName" value={disasterStockpile.productName || ''} onChange={handleChange} required
@@ -211,7 +211,7 @@ const DisasterStockpile = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="staffId" className="form-inline-label">担当者</label>
+              <label htmlFor="staffId" className="form-inline-label">担当者（必須）</label>
             </div>
             <div className="w-2/3">
               <select name="staffId" value={disasterStockpile.staffId || ''} onChange={handleChange} required

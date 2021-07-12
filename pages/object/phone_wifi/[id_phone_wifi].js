@@ -64,7 +64,7 @@ const PhoneWifi = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="telephoneNumber" className="form-inline-label">電話番号</label>
+              <label htmlFor="telephoneNumber" className="form-inline-label">電話番号（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="telephoneNumber" value={phoneWifi.telephoneNumber || ''} onChange={handleChange} required
@@ -105,15 +105,11 @@ const PhoneWifi = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="userId" className="form-inline-label">利用者氏名</label>
+              <label htmlFor="userName" className="form-inline-label">利用者氏名（必須）</label>
             </div>
             <div className="w-2/3">
-              <select name="userId" value={phoneWifi.userId || ''} onChange={handleChange} required
-              className="form-inline-input">
-                <option value=""></option>
-                {sbody}
-              </select>
-              <input type = "hidden" />
+              <input type="text" name="userName" value={phoneWifi.userName || ''} onChange={handleChange} required
+              className="form-inline-input"/>
             </div>
           </div>
 
@@ -286,7 +282,7 @@ const PhoneWifi = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="staffId" className="form-inline-label">担当者</label>
+              <label htmlFor="staffId" className="form-inline-label">担当者（必須）</label>
             </div>
             <div className="w-2/3">
               <select name="staffId" value={phoneWifi.staffId || ''} onChange={handleChange} required

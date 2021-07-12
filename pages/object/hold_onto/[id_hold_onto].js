@@ -64,7 +64,7 @@ const HoldOnto = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="productName" className="form-inline-label">品名</label>
+              <label htmlFor="productName" className="form-inline-label">品名（必須）</label>
             </div>
             <div className="w-2/3">
               <input type="text" name="productName" value={holdOnto.productName || ''} onChange={handleChange} required
@@ -84,7 +84,7 @@ const HoldOnto = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="customerStaff" className="form-inline-label">お客様担当者</label>
+              <label htmlFor="customerStaff" className="form-inline-label">お客様担当者（必須）</label>
             </div>
             <div className="w-2/3">
               <select value={holdOnto.customerStaff || ''} onChange={handleChange} name="customerStaff" className="form-inline-input" required>
@@ -107,7 +107,7 @@ const HoldOnto = () => {
 
           <div className="flex items-center mb-2">
             <div className="w-1/3">
-              <label htmlFor="getStaff" className="form-inline-label">受領者</label>
+              <label htmlFor="getStaff" className="form-inline-label">受領者（必須）</label>
             </div>
             <div className="w-2/3">
               <select name="getStaff" value={holdOnto.getStaff || ''} onChange={handleChange} required
