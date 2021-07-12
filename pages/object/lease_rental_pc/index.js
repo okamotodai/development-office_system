@@ -6,6 +6,25 @@ import { useUser,usePc } from '../../../lib/hooks'
 const Pcs = () => {
   const user = useUser()
   const pc = usePc()
+  const now = new Date();//今日
+
+  const changeColor = (limitday,now) => {
+    const limit = new Date(limitday);//期限
+
+    if(limitday === null){
+      return false
+    }
+    const befSeven = limit.setDate(limit.getDate() -7 );//期限から7日前
+    const remainingTime = (now - befSeven) / 86400000;//今日（ミリ秒）から期限から7日前（ミリ秒）を引く
+
+　　//remainingTimeが0以上ならアラート出るようにする
+    if(0 <= remainingTime){
+      return true
+    }else{
+      return false
+    }
+  }
+
 
   if (!pc) {
     return null
@@ -13,7 +32,7 @@ const Pcs = () => {
 
 const tbody = !pc.lease_rental_pc ? null : pc.lease_rental_pc.map(p =>
   <Link href="/object/lease_rental_pc/[id_lease_rental_pc]" as={`/object/lease_rental_pc/${p.id}`} key={p.id}>
-    <tr className="hover:bg-gray-200">
+    <tr className="hover:bg-gray-200" style={changeColor(p.contractEnd,now) === true ? { background:"#ffe4e1" }:{}}>
       <td className="p-2">{p.contracTnumber}</td>
       <td className="p-2">{p.productName}</td>
       <td className="p-2">{p.os}</td>

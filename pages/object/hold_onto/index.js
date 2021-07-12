@@ -6,7 +6,24 @@ import { useUser,useHoldOnto } from '../../../lib/hooks'
 const HoldOntos = () => {
   const user = useUser()
   const holdonto = useHoldOnto()
+  const now = new Date();//今日
 
+  const changeColor = (limitday,now) => {
+    const limit = new Date(limitday);//期限
+
+    if(limitday === null){
+      return false
+    }
+    const befSeven = limit.setDate(limit.getDate() -7 );//期限から7日前
+    const remainingTime = (now - befSeven) / 86400000;//今日（ミリ秒）から期限から7日前（ミリ秒）を引く
+
+　　//remainingTimeが0以上ならアラート出るようにする
+    if(0 <= remainingTime){
+      return true
+    }else{
+      return false
+    }
+  }
 
 
   if (!holdonto) {
@@ -15,7 +32,7 @@ const HoldOntos = () => {
 
   const tbody = !holdonto.hold_onto ? null : holdonto.hold_onto.map(h =>
     <Link href="/object/hold_onto/[id_hold_onto]" as={`/object/hold_onto/${h.id}`} key={h.id}>
-      <tr className="hover:bg-gray-200">
+      <tr className="hover:bg-gray-200" style={changeColor(h.storagePeriod,now) === true ? { background:"#ffe4e1" }:{}}>
         <td className="p-2">{h.productName}</td>
         <td className="p-2">{h.serialCode}</td>
         <td className="p-2">{h.customerS?.fullName}</td>

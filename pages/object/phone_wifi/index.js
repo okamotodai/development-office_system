@@ -6,6 +6,24 @@ import { useUser,usePhone } from '../../../lib/hooks'
 const PhoneWifis = () => {
   const user = useUser()
   const phone = usePhone()
+  const now = new Date();//今日
+
+  const changeColor = (limitday,now) => {
+    const limit = new Date(limitday);//期限
+
+    if(limitday === null){
+      return false
+    }
+    const befSeven = limit.setDate(limit.getDate() -7 );//期限から7日前
+    const remainingTime = (now - befSeven) / 86400000;//今日（ミリ秒）から期限から7日前（ミリ秒）を引く
+
+　　//remainingTimeが0以上ならアラート出るようにする
+    if(0 <= remainingTime){
+      return true
+    }else{
+      return false
+    }
+  }
 
   if (!phone) {
     return null
@@ -13,7 +31,7 @@ const PhoneWifis = () => {
 
 const tbody = !phone.phone_wifi ? null : phone.phone_wifi.map(ph =>
   <Link href="/object/phone_wifi/[id_phone_wifi]" as={`/object/phone_wifi/${ph.id}`} key={ph.id}>
-    <tr className="hover:bg-gray-200">
+    <tr className="hover:bg-gray-200" style={changeColor(ph.contractEnd,now) === true ? { background:"#ffe4e1" }:{}}>
       <td className="p-2">{ph.telephoneNumber}</td>
       <td className="p-2">{ph.carrier}</td>
       <td className="p-2">{ph.typeTelWifi}</td>
