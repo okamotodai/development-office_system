@@ -54,6 +54,7 @@ CREATE TABLE lease_rental_pc (
     ip_address varchar(64),
     vpn integer,
     monthly integer,
+    alert integer,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
     PRIMARY KEY (id)
@@ -134,9 +135,9 @@ CREATE TABLE disaster_stockpile (
     note_2 text,
     new_approval_doc date,
     staff_id integer not null,
+    alert integer,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
     PRIMARY KEY (id),
     FOREIGN KEY(staff_id) REFERENCES "Staff"(staff_id)
 );
-
