@@ -118,16 +118,6 @@ const Dispatch = () => {
               <input type="hidden"/>
             </div>
           </div>
-
-            {/* <div className="w-1/6">
-              <input type="radio" name="sex" value={1 || ''} onChange={handleChange}
-                      className="mr-2 leading-tight"/> 男
-            </div>
-            <div className="w-1/6">
-              <input type="radio" name="sex" value={2 || ''} onChange={handleChange}
-                      className="mr-2 leading-tight"/> 女
-            </div>
-          </div> */}
           
           <div className="flex items-center mb-2">
             <div className="w-1/3">

@@ -15,6 +15,7 @@ const LeaseRentalPcs = sequelize.define('lease_rental_pc',{
   ipAddress:       { type: DataTypes.STRING, field: 'ip_address', defaultValue: null,},
   vpn:             { type: DataTypes.INTEGER, field: 'vpn', defaultValue: null,},
   monthly:         { type: DataTypes.INTEGER, field: 'monthly', defaultValue: null,},
+  alert:          { type: DataTypes.INTEGER, field: 'alert', defaultValue: null, },
   createdAt:       { type: DataTypes.DATE, field: 'created_at', defaultValue: null,},
   updatedAt:       { type: DataTypes.DATE, field: 'updated_at', defaultValue: null,},
 },{

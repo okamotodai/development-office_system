@@ -58,7 +58,7 @@ const WorkingStatus = () => {
   }
 
   const pbody = !dispatchProject.dispatchProjects ? null : dispatchProject.dispatchProjects.map(p =>
-    <option value={p.id}>{p.projectName}</option>
+    <option value={p.id} key={p.id}>{p.projectName}</option>
   )
 
   return (

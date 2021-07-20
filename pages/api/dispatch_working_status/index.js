@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const session = await getSession(req)
   const dispatchWorkingStatus = !session ? null : await WorkTimesByMonth.findAll({
     where: req.query.dispatchedStaffId ? {dispatchedStaffId: req.query.dispatchedStaffId} : {},
-    order: [['id', 'ASC']],
+    order: [['dates', 'DESC']],
     include:[{
       model:DispatchProject,
       required: true

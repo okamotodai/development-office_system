@@ -18,6 +18,7 @@ const DisasterStockpiles = sequelize.define('disaster_stockpile', {
   note2:            { type: DataTypes.TEXT, field: 'note_2', defaultValue: null, },
   newApprovalDoc:   { type: DataTypes.STRING, field: 'new_approval_doc', defaultValue: null, },
   staffId:          { type: DataTypes.INTEGER, field: 'staff_id', defaultValue: null, },
+  alert:          { type: DataTypes.INTEGER, field: 'alert', defaultValue: null, },
   createdAt:        { type: DataTypes.DATE, field: 'created_at', defaultValue: null, },
   updatedAt:        { type: DataTypes.DATE, field: 'updated_at', defaultValue: null, },
 },{
